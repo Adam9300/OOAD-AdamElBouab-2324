@@ -8,19 +8,20 @@ class Program
         while (true)
         {
             Console.Write("Geef een woord (enter om te stoppen): ");
-            string input = Console.ReadLine();
+            string woord = Console.ReadLine();
 
-            if (string.IsNullOrEmpty(input))
+            if (string.IsNullOrEmpty(woord))
                 break;
 
-            int aantalKarakters = input.Length;
-            int aantalLettergrepen = AantalLettergrepen(input);
-            double complexiteit = Complexiteit(input);
+            int aantalKarakters = woord.Length;
+            int aantalLettergrepen = AantalLettergrepen(woord);
+            double complexiteit = Complexiteit(woord);
 
             Console.WriteLine($"Aantal karakters: {aantalKarakters}");
             Console.WriteLine($"Aantal lettergrepen: {aantalLettergrepen}");
             Console.WriteLine($"Complexiteit: {complexiteit:F1}");
         }
+   
     }
 
     static bool IsKlinker(char letter)
@@ -62,15 +63,15 @@ class Program
     }
 
     static double Complexiteit(string woord)
-    {
-        int aantalLetters = woord.Length;
+    { // sa va calculer la complexiter , on prend la longuer du mots diviser par 3 
+        int aantalLetters = woord.Length; 
         int aantalLettergrepen = AantalLettergrepen(woord);
 
-        double complexiteit = aantalLetters / 3.0 + aantalLettergrepen;
+        double complexiteit = aantalLetters / 3.0 + aantalLettergrepen; 
 
-        if (woord.Contains('x') || woord.Contains('y') || woord.Contains('q'))
+        if (woord.Contains('x') || woord.Contains('y') || woord.Contains('q')) 
         {
-            complexiteit += 1;
+            complexiteit += 1; // Si ya une de les letrres metionnees sa rajouter += 1 de complexite.
         }
 
         return complexiteit;
