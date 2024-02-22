@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace TaskManagerApp
+namespace WpfTaken
 {
     public partial class MainWindow : Window
     {
@@ -22,7 +22,7 @@ namespace TaskManagerApp
             {
                 ListBoxItem item = new ListBoxItem();
                 item.Content = $"{taskDescription} (deadline: {DeadlineDatePicker.SelectedDate?.ToString("dd/MM/yyyy")}; door: {GetSelectedAssignee()})";
-                item.Background = GetPriorityColor();
+                item.Background = GetPrioriteitColor();
                 TaskListBox.Items.Add(item);
                 TaakTextB.Clear();
                 CheckForm();
@@ -77,7 +77,7 @@ namespace TaskManagerApp
 
 
 
-                // Schakel de verwijder-en herstelknoppen in of uit op basis van de geselecteerde items
+                // Schakel de verwijder en herstelknoppen in of uit op basis van de geselecteerde items
                 RemoveButton.IsEnabled = TaskListBox.SelectedItem != null;
                 RestoreButton.IsEnabled = deletedItems.Count > 0;
             }
@@ -94,7 +94,7 @@ namespace TaskManagerApp
                     case "hoog":
                         return Brushes.Red;
                     default:
-                        return Brushes.White; // Standaardkleur 
+                        return Brushes.White;  
                 }
 
 
@@ -110,4 +110,4 @@ namespace TaskManagerApp
                
             }
         }
-    }
+        }

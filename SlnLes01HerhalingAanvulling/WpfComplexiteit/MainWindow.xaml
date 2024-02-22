@@ -11,11 +11,11 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="inputTextBox" Grid.Row="3" Margin="10,21,269,-23" TextChanged="inputTextBox_TextChanged"/>
+        <TextBox x:Name="inputTxtBox" Grid.Row="3" Margin="10,21,269,-23" TextChanged="inputTextBox_TextChanged"/>
         <Button Content="ANALYSEER" Click="Analyseer_Click" Grid.Row="3" Margin="157,20,127,-24"/>
-        <TextBlock x:Name="resultTextBlock1" Grid.Row="3" Margin="21,52,190,-57"/>
-        <TextBlock x:Name="resultTextBlock2" Grid.Row="3" Margin="21,78,169,-83"/>
-        <TextBlock x:Name="resultTextBlock3" Grid.Row="3" Margin="21,104,200,-109"/>
+        <TextBlock x:Name="resultTxtBlock1" Grid.Row="3" Margin="21,52,190,-57"/>
+        <TextBlock x:Name="resultTxtBlock2" Grid.Row="3" Margin="21,78,169,-83"/>
+        <TextBlock x:Name="resultTxtBlock3" Grid.Row="3" Margin="21,104,200,-109"/>
 
     </Grid>
 </Window>

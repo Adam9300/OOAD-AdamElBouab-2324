@@ -1,8 +1,5 @@
-﻿using System.Windows;
-using System;
-
-
-
+﻿using System;
+using System.Windows;
 namespace WpfComplexityAnalysis
 {
     public partial class MainWindow : Window
@@ -14,7 +11,7 @@ namespace WpfComplexityAnalysis
 
         private void Analyseer_Click(object sender, RoutedEventArgs e)
         {
-            string woord = inputTextBox.Text.Trim();
+            string woord = inputTxtBox.Text.Trim();
 
             if (!string.IsNullOrEmpty(woord))
             {
@@ -22,9 +19,9 @@ namespace WpfComplexityAnalysis
                 int aantalLettergrepen = AantalLettergrepen(woord);
                 double complexiteit = Complexiteit(woord);
 
-                resultTextBlock1.Text = $"Aantal karakters: {aantalKarakters}";
-                resultTextBlock2.Text = $"Aantal lettergrepen: {aantalLettergrepen}";
-                resultTextBlock3.Text = $"Complexiteit: {Math.Round(complexiteit, 1):F1}";
+                resultTxtBlock1.Text = $"Aantal karakters: {aantalKarakters}";
+                resultTxtBlock2.Text = $"Aantal lettergrepen: {aantalLettergrepen}";
+                resultTxtBlock3.Text = $"Complexiteit: {Math.Round(complexiteit, 1):F1}";
             }
             else
             {
@@ -64,11 +61,6 @@ namespace WpfComplexityAnalysis
             }
 
             return Math.Round(complexity + additionalComplexity, 1);
-        }
-
-        private void inputTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-
         }
     }
 }
