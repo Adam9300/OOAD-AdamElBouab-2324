@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-namespace WpfComplexityAnalysis
+namespace WpfComplexiteit
 {
     public partial class MainWindow : Window
     {
