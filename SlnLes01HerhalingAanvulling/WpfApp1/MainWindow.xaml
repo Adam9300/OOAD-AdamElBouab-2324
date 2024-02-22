@@ -1,0 +1,44 @@
+﻿<Window x:Class="TaskManagerApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Task Manager" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Taak:" Margin="10"/>
+        <TextBox x:Name="TaskTextBox" Grid.Row="0" Margin="100,5,10,5" TextChanged="TaskTextBox_TextChanged"/>
+
+        <TextBlock Grid.Row="1" Text="Prioriteit:" Margin="10"/>
+        <ComboBox x:Name="PriorityComboBox" Grid.Row="1" Margin="100,5,10,5" SelectionChanged="PriorityComboBox_SelectionChanged">
+            <ComboBoxItem Content="Laag"/>
+            <ComboBoxItem Content="Gemiddeld"/>
+            <ComboBoxItem Content="Hoog"/>
+        </ComboBox>
+
+        <TextBlock Grid.Row="2" Text="Deadline:" Margin="10"/>
+        <DatePicker x:Name="DeadlineDatePicker" Grid.Row="2" Margin="100,5,10,5" SelectedDateChanged="DeadlineDatePicker_SelectedDateChanged"/>
+
+        <TextBlock Grid.Row="3" Text="Toegewezen aan:" Margin="10"/>
+        <StackPanel x:Name="TaskAssignmentPanel" Grid.Row="3" Orientation="Horizontal" Margin="100,5,10,5">
+            <RadioButton x:Name="AdamRadioButton" Content="Adam" Checked="RadioButton_Checked"/>
+            <RadioButton x:Name="BilalRadioButton" Content="Bilal" Checked="RadioButton_Checked"/>
+            <RadioButton x:Name="ChelseyRadioButton" Content="Chelsey" Checked="RadioButton_Checked"/>
+        </StackPanel>
+
+        <Button x:Name="AddButton" Grid.Row="4" Content="Toevoegen" Margin="10" Click="AddButton_Click" IsEnabled="False"/>
+        <Button x:Name="RemoveButton" Grid.Row="4" Content="Verwijderen" Margin="100,10,10,10" Click="RemoveButton_Click" IsEnabled="False"/>
+        <Button x:Name="RestoreButton" Grid.Row="4" Content="Terugzetten" Margin="210,10,10,10" Click="RestoreButton_Click" IsEnabled="False"/>
+
+        <ListBox x:Name="TaskListBox" Grid.Row="5" Margin="10,10,10,95" SelectionChanged="TaskListBox_SelectionChanged"/>
+
+        <TextBlock x:Name="TaskErrorTextBlock" Grid.Row="5" Margin="10,162,10,10" Foreground="Red" Grid.RowSpan="2"/>
+    </Grid>
+</Window>

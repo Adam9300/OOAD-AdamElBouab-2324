@@ -1,12 +1,49 @@
-﻿<Window x:Class="WpfTaken.MainWindow"
+﻿<Window x:Class="TaskManagerApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfTaken"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Task Manager" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Taak:" Margin="10,10,563,10"/>
+        <TextBox x:Name="TaskTextBox" Grid.Row="0" Margin="100,5,558,5" TextChanged="CheckForm"/>
+
+        <TextBlock Grid.Row="1" Text="Prioriteit:" Margin="10,10,563,10"/>
+        <ComboBox x:Name="PriorityComboBox" Grid.Row="1" Margin="100,5,558,5" SelectionChanged="CheckForm">
+            <ComboBoxItem Content="Laag"/>
+            <ComboBoxItem Content="Gemiddeld"/>
+            <ComboBoxItem Content="Hoog"/>
+        </ComboBox>
+
+        <TextBlock Grid.Row="2" Text="Deadline:" Margin="10,10,558,10"/>
+        <DatePicker x:Name="DeadlineDatePicker" Grid.Row="2" Margin="100,5,558,5" SelectedDateChanged="CheckForm"/>
+
+        <TextBlock Grid.Row="3" Text="Toegewezen aan:" Margin="10,10,475,10"/>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="100,5,10,5"/>
+
+        <Button x:Name="AddButton" Grid.Row="5" Content="Toevoegen" Margin="168,17,492,-45" Click="AddButton_Click" IsEnabled="False"/>
+        <Button x:Name="RemoveButton" Grid.Row="5" Content="Verwijderen" Margin="532,73,152,-102" Click="RemoveButton_Click" IsEnabled="False"/>
+        <Button x:Name="RestoreButton" Grid.Row="5" Content="Terugzetten" Margin="400,73,306,-102" Click="RestoreButton_Click" IsEnabled="False"/>
+
+        <ListBox x:Name="TaskListBox" Margin="325,18,16,-45" SelectionChanged="TaskListBox_SelectionChanged" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="6">
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+        </ListBox>
+        <RadioButton Content="Adam" HorizontalAlignment="Left" Height="21" Margin="108,5,0,0" Grid.Row="3" VerticalAlignment="Top" Width="63" Checked="RadioButton_Checked" RenderTransformOrigin="0.135,-6.417"/>
+        <RadioButton Content="Chelsey" HorizontalAlignment="Left" Height="21" Margin="238,6,0,0" Grid.Row="3" VerticalAlignment="Top" Width="74" Checked="RadioButton_Checked"/>
+        <RadioButton Content="Bilal" HorizontalAlignment="Left" Height="21" Margin="187,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="46" Checked="RadioButton_Checked"/>
     </Grid>
 </Window>

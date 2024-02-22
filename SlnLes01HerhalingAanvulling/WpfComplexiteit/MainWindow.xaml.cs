@@ -65,5 +65,10 @@ namespace WpfComplexityAnalysis
 
             return Math.Round(complexity + additionalComplexity, 1);
         }
+
+        private void inputTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
+        }
     }
 }

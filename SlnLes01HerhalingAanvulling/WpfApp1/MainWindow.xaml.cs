@@ -13,6 +13,7 @@ namespace TaskManagerApp
         public MainWindow()
         {
             InitializeComponent();
+            CheckForm(); // Roep CheckForm aan bij het initialiseren van de pagina om de initiële status in te stellen
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -55,7 +56,22 @@ namespace TaskManagerApp
             CheckForm();
         }
 
-        private void CheckForm(object sender, RoutedEventArgs e)
+        private void TaskTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CheckForm();
+        }
+
+        private void PriorityComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CheckForm();
+        }
+
+        private void DeadlineDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CheckForm();
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             CheckForm();
         }
@@ -67,33 +83,30 @@ namespace TaskManagerApp
             bool isDeadlineSelected = DeadlineDatePicker.SelectedDate != null;
             bool isAtLeastOneAssigned = AdamRadioButton.IsChecked == true || BilalRadioButton.IsChecked == true || ChelseyRadioButton.IsChecked == true;
 
-            if (!isTaskEmpty && isPrioritySelected && isDeadlineSelected && isAtLeastOneAssigned)
+            // Toon foutmeldingen afhankelijk van de ontbrekende gegevens
+            if (isTaskEmpty)
             {
-                AddButton.IsEnabled = true;
-                TaskErrorTextBlock.Text = ""; // Geen foutmelding, dus leeg maken
+                TaskErrorTextBlock.Text = "Voeg een taaknaam toe.";
+            }
+            else if (!isPrioritySelected)
+            {
+                TaskErrorTextBlock.Text = "Selecteer een prioriteit.";
+            }
+            else if (!isDeadlineSelected)
+            {
+                TaskErrorTextBlock.Text = "Selecteer een deadline.";
+            }
+            else if (!isAtLeastOneAssigned)
+            {
+                TaskErrorTextBlock.Text = "Selecteer minstens één toegewezen persoon.";
             }
             else
             {
-                AddButton.IsEnabled = false; // Schakel de toevoegknop uit vanwege fouten
-
-                // Toon foutmeldingen afhankelijk van de ontbrekende gegevens
-                if (isTaskEmpty)
-                {
-                    TaskErrorTextBlock.Text = "Voeg een taaknaam toe.";
-                }
-                else if (!isPrioritySelected)
-                {
-                    TaskErrorTextBlock.Text = "Selecteer een prioriteit.";
-                }
-                else if (!isDeadlineSelected)
-                {
-                    TaskErrorTextBlock.Text = "Selecteer een deadline.";
-                }
-                else if (!isAtLeastOneAssigned)
-                {
-                    TaskErrorTextBlock.Text = "Selecteer minstens één toegewezen persoon.";
-                }
+                TaskErrorTextBlock.Text = ""; // Geen foutmelding, dus leeg maken
             }
+
+            // Schakel de toevoegknop in of uit op basis van de validatievoorwaarden
+            AddButton.IsEnabled = !isTaskEmpty && isPrioritySelected && isDeadlineSelected && isAtLeastOneAssigned;
 
             // Schakel de verwijder- en herstelknoppen in of uit op basis van de geselecteerde items
             RemoveButton.IsEnabled = TaskListBox.SelectedItem != null;
@@ -114,11 +127,6 @@ namespace TaskManagerApp
                 default:
                     return Brushes.White; // Standaardkleur
             }
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            CheckForm();
         }
 
         private string GetSelectedAssignee()
