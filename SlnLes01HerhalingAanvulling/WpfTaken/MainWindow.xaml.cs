@@ -17,14 +17,14 @@ namespace TaskManagerApp
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            string taskDescription = TaskTextBox.Text;
+            string taskDescription = TaakTextB.Text;
             if (!string.IsNullOrWhiteSpace(taskDescription))
             {
                 ListBoxItem item = new ListBoxItem();
                 item.Content = $"{taskDescription} (deadline: {DeadlineDatePicker.SelectedDate?.ToString("dd/MM/yyyy")}; door: {GetSelectedAssignee()})";
                 item.Background = GetPriorityColor();
                 TaskListBox.Items.Add(item);
-                TaskTextBox.Clear();
+                TaakTextB.Clear();
                 CheckForm();
             }
         }
@@ -50,87 +50,64 @@ namespace TaskManagerApp
             }
         }
 
-        private void TaskListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            CheckForm();
-        }
-
-        private void CheckForm(object sender, RoutedEventArgs e)
-        {
-            CheckForm();
-        }
 
         private void CheckForm()
         {
-            bool isTaskEmpty = string.IsNullOrWhiteSpace(TaskTextBox.Text);
-            bool isPrioritySelected = PriorityComboBox.SelectedItem != null;
+            bool isTaskEmpty = string.IsNullOrWhiteSpace(TaakTextB.text);
+            bool isPrioritySelected = PrioriteitComboBox.SelectedItem != null;
             bool isDeadlineSelected = DeadlineDatePicker.SelectedDate != null;
             bool isAtLeastOneAssigned = AdamRadioButton.IsChecked == true || BilalRadioButton.IsChecked == true || ChelseyRadioButton.IsChecked == true;
 
             if (!isTaskEmpty && isPrioritySelected && isDeadlineSelected && isAtLeastOneAssigned)
             {
+                // Geen foutmelding dan leeg maken
                 AddButton.IsEnabled = true;
-                TaskErrorTextBlock.Text = ""; // Geen foutmelding, dus leeg maken
+                TaakErrorTextBlock.Text = "";
             }
             else
             {
-                AddButton.IsEnabled = false; // Schakel de toevoegknop uit vanwege fouten
+                AddButton.IsEnabled = false; 
 
                 // Toon foutmeldingen afhankelijk van de ontbrekende gegevens
-                if (isTaskEmpty)
+                if (!isDeadlineSelected)
                 {
-                    TaskErrorTextBlock.Text = "Voeg een taaknaam toe.";
+                    TaakErrorTextBlock.Text = "Gelieve een deadline te kizenen";
+                    TaakErrorTextBlock.Text = "Gelieve een uitvoerder te kiezen";
                 }
-                else if (!isPrioritySelected)
-                {
-                    TaskErrorTextBlock.Text = "Selecteer een prioriteit.";
-                }
-                else if (!isDeadlineSelected)
-                {
-                    TaskErrorTextBlock.Text = "Selecteer een deadline.";
-                }
-                else if (!isAtLeastOneAssigned)
-                {
-                    TaskErrorTextBlock.Text = "Selecteer minstens één toegewezen persoon.";
-                }
+
+
+
+                // Schakel de verwijder-en herstelknoppen in of uit op basis van de geselecteerde items
+                RemoveButton.IsEnabled = TaskListBox.SelectedItem != null;
+                RestoreButton.IsEnabled = deletedItems.Count > 0;
             }
 
-            // Schakel de verwijder- en herstelknoppen in of uit op basis van de geselecteerde items
-            RemoveButton.IsEnabled = TaskListBox.SelectedItem != null;
-            RestoreButton.IsEnabled = deletedItems.Count > 0;
-        }
-
-        private SolidColorBrush GetPriorityColor()
-        {
-            string priority = ((ComboBoxItem)PriorityComboBox.SelectedItem).Content.ToString().ToLower();
-            switch (priority)
+            private SolidColorBrush GetPriorityColor()
             {
-                case "laag":
-                    return Brushes.LightGreen;
-                case "gemiddeld":
-                    return Brushes.Orange;
-                case "hoog":
-                    return Brushes.Red;
-                default:
-                    return Brushes.White; // Standaardkleur
+                string priority = ((ComboBoxItem)PrioriteitComboBox.SelectedItem).Content.ToString().ToLower();
+                switch (priority)
+                {
+                    case "laag":
+                        return Brushes.LightGreen;
+                    case "gemiddeld":
+                        return Brushes.Orange;
+                    case "hoog":
+                        return Brushes.Red;
+                    default:
+                        return Brushes.White; // Standaardkleur 
+                }
+
+
+
+                private string GetSelectedAssignee()
+            {
+                if (AdamRadioButton.IsChecked == true)
+                    return "Adam";
+                else if (BilalRadioButton.IsChecked == true)
+                    return "Bilal";
+                else if (ChelseyRadioButton.IsChecked == true)
+                    return "Chelsey";
+               
             }
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            CheckForm();
-        }
-
-        private string GetSelectedAssignee()
-        {
-            if (AdamRadioButton.IsChecked == true)
-                return "Adam";
-            else if (BilalRadioButton.IsChecked == true)
-                return "Bilal";
-            else if (ChelseyRadioButton.IsChecked == true)
-                return "Chelsey";
-            else
-                return "Onbekend";
         }
     }
-}
