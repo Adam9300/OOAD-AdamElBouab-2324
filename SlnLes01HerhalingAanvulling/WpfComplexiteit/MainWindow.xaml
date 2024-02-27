@@ -1,5 +1,4 @@
-﻿
-    <Window x:Class="WpfComplexityAnalysis.MainWindow"
+﻿<Window x:Class="WpfComplexityAnalysis.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="WpfComplexiteit" Height="200" Width="400">
@@ -11,11 +10,11 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="inputTxtBox" Grid.Row="3" Margin="10,21,269,-23" TextChanged="inputTextBox_TextChanged"/>
-        <Button Content="ANALYSEER" Click="Analyseer_Click" Grid.Row="3" Margin="157,20,127,-24"/>
-        <TextBlock x:Name="resultTxtBlock1" Grid.Row="3" Margin="21,52,190,-57"/>
-        <TextBlock x:Name="resultTxtBlock2" Grid.Row="3" Margin="21,78,169,-83"/>
-        <TextBlock x:Name="resultTxtBlock3" Grid.Row="3" Margin="21,104,200,-109"/>
+        <TextBox x:Name="inputTxtBox" Grid.Row="3" Margin="10,25,270,0" TextChanged="inputTextBox_TextChanged"/>
+        <Button Content="ANALYSEER" Click="Analyseer_Click" Grid.Row="3" Margin="160,20,130,0"/>
+        <TextBlock x:Name="resultTxtBlock1" Grid.Row="3" Margin="20,55,190,0"/>
+        <TextBlock x:Name="resultTxtBlock2" Grid.Row="3" Margin="20,80,170,0"/>
+        <TextBlock x:Name="resultTxtBlock3" Grid.Row="3" Margin="20,105,200,0"/>
 
     </Grid>
 </Window>

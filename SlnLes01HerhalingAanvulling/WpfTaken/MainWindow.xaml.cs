@@ -30,7 +30,7 @@ namespace WpfTaken
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (TaskListBox.SelectedItem != null)
+            if (TaskListB.SelectedItem != null)
             {
                 ListBoxItem selectedItem = (ListBoxItem)TaskListBox.SelectedItem;
                 TaskListBox.Items.Remove(selectedItem);

@@ -13,33 +13,32 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Taak:" Margin="10,10,539,10"/>
-        <TextBox x:Name="TaakTextB" Grid.Row="0" Margin="100,5,522,5" TextChanged="TaakTextBox_TextChanged"/>
+        <TextBlock Grid.Row="0" Text="Taak:" Margin="10,10,10,10"/>
+        <TextBox x:Name="TaakTextB" Grid.Row="0" Margin="100,5,100,5" TextChanged="TaakTextBox_TextChanged"/>
 
-        <TextBlock Grid.Row="1" Text="Prioriteit:" Margin="10,10,539,10"/>
-        <ComboBox x:Name="PrioriteitComboBox" Grid.Row="1" Margin="100,5,522,5" SelectionChanged="PrioriteitComboBox_SelectionChanged">
+        <TextBlock Grid.Row="1" Text="Prioriteit:" Margin="10,10,10,10"/>
+        <ComboBox x:Name="PrioriteitComboBox" Grid.Row="1" Margin="100,5,100,5" SelectionChanged="PrioriteitComboBox_SelectionChanged">
             <ComboBoxItem Content="Laag"/>
             <ComboBoxItem Content="Gemiddeld"/>
             <ComboBoxItem Content="Hoog"/>
         </ComboBox>
 
         <TextBlock Grid.Row="2" Text="Deadline:" Margin="10,10,10,10"/>
-        <DatePicker x:Name="DeadlineDatePicker" Grid.Row="2" Margin="100,5,522,5" SelectedDateChanged="DeadlineDatePicker_SelectedDateChanged"/>
+        <DatePicker x:Name="DeadlineDatePicker" Grid.Row="2" Margin="100,5,100,5" SelectedDateChanged="DeadlineDatePicker_SelectedDateChanged"/>
 
-        <TextBlock Grid.Row="3" Margin="5,7,387,10"><Run Language="nl-be" Text="Door"/><Run Text=":"/></TextBlock>
-        <StackPanel x:Name="TaakAssignmentPanel" Grid.Row="3" Orientation="Horizontal" Margin="100,5,539,5">
+        <TextBlock Grid.Row="3" Margin="5,7,10,10"><Run Language="nl-be" Text="Door"/><Run Text=":"/></TextBlock>
+        <StackPanel x:Name="TaakAssignmentPanel" Grid.Row="3" Orientation="Horizontal" Margin="100,5,100,5">
             <RadioButton x:Name="AdamRadioButton" Content="Adam" Checked="RadioButton_Adam"/>
             <RadioButton x:Name="BilalRadioButton" Content="Bilal" Checked="RadioButton_Bilal"/>
-            <RadioButton x:Name="ChelseyRadioButton" Content="Chelsey                " Checked="RadioButton_Chelsey" Height="58" Width="86"/>
-           
+            <RadioButton x:Name="ChelseyRadioButton" Content="Chelsey" Checked="RadioButton_Chelsey" Height="50" Width="90"/>
         </StackPanel>
 
-        <Button x:Name="AddButton" Grid.Row="4" Content="Toevoegen" Margin="291,59,387,70" Click="AddButton_Click" IsEnabled="False"/>
-        <Button x:Name="RemoveButton" Grid.Row="4" Content="Verwijderen" Margin="612,119,52,90" Click="RemoveButton_Click" IsEnabled="False" Grid.RowSpan="2"/>
-        <Button x:Name="RestoreButton" Grid.Row="4" Content="Terugzetten" Margin="447,119,217,90" Click="RestoreButton_Click" IsEnabled="False" Grid.RowSpan="2"/>
+        <Button x:Name="AddButton" Grid.Row="4" Content="Toevoegen" Margin="290,60,290,70" Click="AddButton_Click" IsEnabled="False"/>
+        <Button x:Name="RemoveButton" Grid.Row="4" Content="Verwijderen" Margin="615,120,50,90" Click="RemoveButton_Click" IsEnabled="False" Grid.RowSpan="2"/>
+        <Button x:Name="RestoreButton" Grid.Row="4" Content="Terugzetten" Margin="450,120,220,90" Click="RestoreButton_Click" IsEnabled="False" Grid.RowSpan="2"/>
 
-        <ListBox x:Name="TaskListBox" Margin="418,21,52,63" SelectionChanged="TaskListBox_SelectionChanged" Grid.RowSpan="5"/>
+        <ListBox x:Name="TaakListB" Margin="420,20,50,65" SelectionChanged="TaskListBox_SelectionChanged" Grid.RowSpan="5"/>
 
-        <TextBlock x:Name="TaakErrorTextBlock" Grid.Row="5" Margin="34,0,0,10" Foreground="Red"/>
+        <TextBlock x:Name="TaakErrorTextBlock" Grid.Row="5" Margin="35,0,0,10" Foreground="Red"/>
     </Grid>
 </Window>
