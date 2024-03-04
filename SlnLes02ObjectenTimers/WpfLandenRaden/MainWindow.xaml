@@ -9,34 +9,15 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Button Content="Start" Click="StartBTN_Click" HorizontalAlignment="Left" Margin="30,214,0,131" Width="115" Grid.Row="1">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.235"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
+        <Button x:Name="btnStart" Content="Start" Click="BtnStart_Click" HorizontalAlignment="Left" Margin="30,274,0,0" VerticalAlignment="Top" Width="88" Grid.Row="1" Height="28"/>
 
-        <Image x:Name="imageArgentina" Source="/Images/argentina.png" Tag="argentina" MouseUp="Image_MouseUp" Margin="30,24,666,262" Grid.Row="1"/>
-        <Image x:Name="imageFinland" Source="/Images/finland.png" Tag="finland" MouseUp="Image_MouseUp" Margin="115,24,588,264" RenderTransformOrigin="2.105,0.623" Grid.Row="1"/>
-        <Image x:Name="imageJapan" Source="/Images/japan.png" Tag="japan" MouseUp="Image_MouseUp" Margin="350,22,336,248" Grid.Row="1" RenderTransformOrigin="1.908,0.47"/>
-        <Image x:Name="imageMarokko" Source="/Images/marokko.png" Tag="marokko" MouseUp="Image_MouseUp" Margin="480,21,126,255" Grid.Row="1" RenderTransformOrigin="3.145,0.464"/>
-        <Image x:Name="imageNieuwZeeland" Source="/Images/nieuwzeeland.png" Tag="nieuwzeeland" MouseUp="Image_MouseUp" Margin="225,19,485,253" Grid.Row="1"/>
-
-        <Label Name="resultLabel" Grid.Row="2" Content="" HorizontalAlignment="Center" Margin="0,10,0,10" Width="258"/>
-        <Label x:Name="instructionLabel" Content="Raad zo snel mogelijk alle landen! Ben je klaar?" HorizontalContentAlignment="Center" Margin="10,149,444,189" Grid.Row="1" RenderTransformOrigin="-0.415,0.597">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.315"/>
-                    <RotateTransform Angle="-0.045"/>
-                    <TranslateTransform X="0.005" Y="-0.279"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="countryLabel" Content="" HorizontalContentAlignment="Center" Margin="0,190,600,171" Grid.Row="1"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Height="178" Width="778" Margin="0,10,0,0">
+            <Image x:Name="imgNieuwzeeland" Source="/Images/nieuwzeeland.png" Tag="Nieuw-Zeeland" Height="114" Width="118" MouseUp="Img_Click"/>
+            <Image x:Name="imgFinland" Source="/Images/finland.png" Tag="Finland" Height="118" Width="149" Margin="10" MouseUp="Img_Click"/>
+            <Image x:Name="imgArgentina" Source="/Images/argentina.png" Tag="Argentina" Height="118" Width="154" Margin="10" MouseUp="Img_Click" RenderTransformOrigin="-0.416,0.466"/>
+            <Image x:Name="imgMarokko" Source="/Images/marokko.png" Tag="Marokko" Height="114" Width="152" MouseUp="Img_Click"/>
+            <Image x:Name="imgJapan" Source="/Images/japan.png" Tag="Japan" Height="116" Width="165" MouseUp="Img_Click"/>
+        </StackPanel>
+        <Label x:Name="lblRaden" Content="Raad zo snel mogelijk alle landen! Ben je klaar?" HorizontalAlignment="Left" Margin="11,0,0,165" VerticalAlignment="Bottom" Grid.Row="1" Height="39" Width="343"/>
     </Grid>
 </Window>
