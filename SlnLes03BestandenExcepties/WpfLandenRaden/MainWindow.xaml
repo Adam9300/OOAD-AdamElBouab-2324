@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfLandenRaden.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Landen Raden" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="btnStart" Content="Start" Click="BtnStart_Click" HorizontalAlignment="Left" Margin="30,274,0,0" VerticalAlignment="Top" Width="88" Grid.Row="1" Height="28"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Height="178" Width="778" Margin="0,10,0,0">
+            <Image x:Name="imgNieuwzeeland" Source="/Images/nieuwzeeland.png" Tag="Nieuw-Zeeland" Height="114" Width="118" MouseUp="Img_Click"/>
+            <Image x:Name="imgFinland" Source="/Images/finland.png" Tag="Finland" Height="118" Width="149" Margin="10" MouseUp="Img_Click"/>
+            <Image x:Name="imgArgentina" Source="/Images/argentina.png" Tag="Argentina" Height="118" Width="154" Margin="10" MouseUp="Img_Click" RenderTransformOrigin="-0.416,0.466"/>
+            <Image x:Name="imgMarokko" Source="/Images/marokko.png" Tag="Marokko" Height="114" Width="152" MouseUp="Img_Click"/>
+            <Image x:Name="imgJapan" Source="/Images/japan.png" Tag="Japan" Height="116" Width="165" MouseUp="Img_Click"/>
+        </StackPanel>
+        <Label x:Name="lblRaden" Content="Raad zo snel mogelijk alle landen! Ben je klaar?" HorizontalAlignment="Left" Margin="11,0,0,165" VerticalAlignment="Bottom" Grid.Row="1" Height="39" Width="343"/>
+    </Grid>
+</Window>
