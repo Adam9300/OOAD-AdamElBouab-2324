@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfVcardEditor.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfVcardEditor"
+        mc:Ignorable="d"
+         Title="About vcard Editor" Height="330" Width="440">
+    <Grid Margin="0,0,0,-6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Information -->
+        <TextBlock HorizontalAlignment="Left" Grid.Row="1" Margin="64,110,0,100" Width="261"><Run FontWeight="Bold" Text="Gemaakt door: "/><Run Text="Rogier van der Linde"/><LineBreak/><LineBreak/><Run FontWeight="Bold" Text="Vak:"/><Run Text=" "/><Run Text="OO Application Development"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Academiejaar:"/><Run Text=" "/><Run Text="2022--2023"/></TextBlock>
+
+
+        <!-- Close Button -->
+        <Button Content="SLUITEN" HorizontalAlignment="Center" Grid.Row="1" Click="CloseButton_Click" Margin="0,214,0,55" Width="128"/>
+    </Grid>
+</Window>
