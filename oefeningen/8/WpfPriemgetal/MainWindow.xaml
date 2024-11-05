@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfPriemgetal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfPriemgetal"
+        mc:Ignorable="d"
+        Title="WpfPriemgetal" Height="208.316" Width="197.895">
+    <Grid>
+
+        <Label Content="Priemgetal" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Getal:" HorizontalAlignment="Left" Margin="30,43,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtGetal" HorizontalAlignment="Left" Height="23" Margin="75,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+        <Button x:Name="btnControleer" Content="CONTROLEER" HorizontalAlignment="Left" Margin="28,85,0,0" VerticalAlignment="Top" Width="134" FontWeight="Bold" Height="32" Click="btnControleer_Click"/>
+        <Label x:Name="lblResultaat" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top" Width="171" FontWeight="Bold" FontStyle="Italic"/>
+
+    </Grid>
+</Window>

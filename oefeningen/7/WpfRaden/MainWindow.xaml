@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfRaden.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfRaden"
+        mc:Ignorable="d"
+        Title="Raadspel" Height="270" Width="350">
+    <Grid>
+        <TextBox x:Name="txtGok" Padding="5" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="38" Margin="171,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontSize="18" TextChanged="txtGok_TextChanged"/>
+        <Label Content="Jouw gok: " HorizontalAlignment="Left" Margin="24,81,0,0" VerticalAlignment="Top" Height="38" Width="124" FontSize="18"/>
+        <Label Content="Raad een getal tussen 1 en 10" HorizontalAlignment="Left" Margin="24,10,0,0" VerticalAlignment="Top" Height="38" Width="349" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="lblPogingen" Content="Je hebt nog 3 pogingen over" HorizontalAlignment="Left" Margin="24,176,0,0" VerticalAlignment="Top" Height="43" Width="299" FontSize="16" Foreground="#FF3342E4"/>
+        <Button x:Name="btnCheck" IsEnabled="False" Content="CONTROLEER" HorizontalAlignment="Left" Margin="171,142,0,0" VerticalAlignment="Top" Width="128" Height="29" FontSize="14" Click="btnCheck_Click"/>
+
+    </Grid>
+</Window>

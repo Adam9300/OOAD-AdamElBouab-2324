@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfInterest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfInterest"
+        mc:Ignorable="d"
+        Title="WPF Interest" Height="296.4" Width="318.933">
+    <Grid>
+        <Label Content="Interest Calculator" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Startbedrag:" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="102"/>
+        <Label Content="Jaarlijkse interest:" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
+        <Label Content="Periode:" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="102"/>
+        <TextBox x:Name="txtInterest" HorizontalAlignment="Left" Height="23" Margin="117,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtStartbedrag"  HorizontalAlignment="Left" Height="23" Margin="117,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="euro" HorizontalAlignment="Left" Margin="242,47,0,0" VerticalAlignment="Top" Width="40"/>
+        <Label Content="%" HorizontalAlignment="Left" Margin="242,78,0,0" VerticalAlignment="Top" Width="40"/>
+        <Label x:Name="lblPeriode" Content="1 jaar" HorizontalAlignment="Left" Margin="242,109,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button x:Name="btnBerekenen"  Content="BEREKENEN" HorizontalAlignment="Left" Margin="49,157,0,0" VerticalAlignment="Top" Width="188" Height="36" FontWeight="Bold" FontSize="14" Click="btnBerekenen_Click"/>
+        <Label x:Name="lblToekomstigeWaarde" Content="" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="293" Height="41"/>
+        <Slider x:Name="sldPeriode" HorizontalAlignment="Left" Margin="73,115,0,0" VerticalAlignment="Top" Width="164" SmallChange="1" TickPlacement="BottomRight"  Minimum="1" IsSnapToTickEnabled="True" ValueChanged="sldPeriode_ValueChanged"/>
+
+    </Grid>
+</Window>
